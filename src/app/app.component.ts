@@ -25,27 +25,27 @@ export class AppComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder) {
     this.hubConnection = this._hubConnection
 
-    this.hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl('https://networkscanner-s.herokuapp.com/ip')
-      .configureLogging(signalR.LogLevel.Information)
-      .build();
+    // this.hubConnection = new signalR.HubConnectionBuilder()
+    //   .withUrl('https://networkscanner-s.herokuapp.com/ip')
+    //   .configureLogging(signalR.LogLevel.Information)
+    //   .build();
 
-    this.hubConnection.start().catch(err => console.log(err.toString()));
-    this.hubConnection.on('Send', (data: any) => {
-      this.data200.push(data.endPoint);
-      if (data.status == 200) {
-        console.log(data);
-        this.data200.push(data.endPoint);
-        this.messages.push(data.endPoint);
-      } else {
-        this.ErrorMsg = data
-        console.log(this.ErrorMsg);
-        setTimeout(() => {
-          this.ErrorMsg = undefined
-        }, 5000);
-        this.data400.push(data.endPoint);
-      }
-    });
+    // this.hubConnection.start().catch(err => console.log(err.toString()));
+    // this.hubConnection.on('Send', (data: any) => {
+    //   this.data200.push(data.endPoint);
+    //   if (data.status == 200) {
+    //     console.log(data);
+    //     this.data200.push(data.endPoint);
+    //     this.messages.push(data.endPoint);
+    //   } else {
+    //     this.ErrorMsg = data
+    //     console.log(this.ErrorMsg);
+    //     setTimeout(() => {
+    //       this.ErrorMsg = undefined
+    //     }, 5000);
+    //     this.data400.push(data.endPoint);
+    //   }
+    // });
   }
 
   ngOnInit() {
