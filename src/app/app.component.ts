@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HubConnection } from '@microsoft/signalr';
 import * as signalR from '@microsoft/signalr';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -21,12 +22,11 @@ export class AppComponent implements OnInit {
 
   data200 = [];
   data400 = [];
-
   constructor(private _formBuilder: FormBuilder) {
     this.hubConnection = this._hubConnection
 
     this.hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl('https://localhost:44347/ip')
+      .withUrl('https://networkscanner-s.herokuapp.com/ip')
       .configureLogging(signalR.LogLevel.Information)
       .build();
 
