@@ -2,13 +2,13 @@
 
   <div>
     <mat-card class="card">
-      <form [formGroup]="ConnectionService.SendMessage" (ngSubmit)="ConnectionService.sendMessage()">
+      <form [formGroup]="SendMessage" (ngSubmit)="sendMessage()">
         <mat-card-actions>
           <h1>StartIP</h1>
           <mat-form-field appearance="outline">
             <mat-label>StartIP</mat-label>
             <input matInput placeholder="StartIP" formControlName="StartIP" type="text">
-            <mat-error *ngIf="ConnectionService.SendMessage.invalid">
+            <mat-error *ngIf="SendMessage.invalid">
               <strong>Only Ip Address</strong>
             </mat-error>
           </mat-form-field>
@@ -18,7 +18,7 @@
           <mat-form-field appearance="outline">
             <mat-label>EndIP</mat-label>
             <input matInput placeholder="EndIP" formControlName="EndIP" type="text">
-            <mat-error *ngIf="ConnectionService.SendMessage.invalid">
+            <mat-error *ngIf="SendMessage.invalid">
               <strong>Only Ip Address</strong>
             </mat-error>
           </mat-form-field>
@@ -26,25 +26,25 @@
         </mat-card-actions>
 
         <mat-card-actions>
-          <button mat-raised-button type="submit" [disabled]="!ConnectionService.SendMessage.valid">Scan</button>
+          <button mat-raised-button type="submit" [disabled]="!SendMessage.valid">Scan</button>
         </mat-card-actions>
       </form>
 
       <div>
         <div>
-          <mat-error *ngIf="ConnectionService.ErrorMsg">
-            <strong>Status: {{ConnectionService.ErrorMsg.status}} Message: {{ConnectionService.ErrorMsg.message}} IP:
-              {{ConnectionService.ErrorMsg.endPoint.ip}}
+          <mat-error *ngIf="ErrorMsg">
+            <strong>Status: {{ErrorMsg.status}} Message: {{ErrorMsg.message}} IP:
+              {{ErrorMsg.endPoint.ip}}
             </strong>
           </mat-error>
         </div>
 
         <div>
           <h1 style="color: greenyellow;">Status:OK</h1>
-          {{ConnectionService.data200 | json}}
+          {{data200 | json}}
         </div>
         <h1 style="color: rgb(253, 71, 71);">Status:TimeOut</h1>
-        <div>{{ConnectionService.data400 | json}}</div>
+        <div>{{data400 | json}}</div>
       </div>
     </mat-card>
   </div>
