@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HubConnection } from '@microsoft/signalr';
 import * as signalR from '@microsoft/signalr';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
 
 
 @Component({
@@ -34,12 +33,10 @@ export class AppComponent implements OnInit {
     this.hubConnection.on('Send', (data: any) => {
       this.data200.push(data.endPoint);
       if (data.status == 200) {
-        console.log(data);
         this.data200.push(data.endPoint);
         this.messages.push(data.endPoint);
       } else {
         this.ErrorMsg = data
-        console.log(this.ErrorMsg);
         setTimeout(() => {
           this.ErrorMsg = undefined
         }, 5000);
