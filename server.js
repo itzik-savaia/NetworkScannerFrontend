@@ -11,7 +11,7 @@ const app = express();
 app.use(express.static(__dirname + '/dist/NetworkScannerFrontend'));
 
 var corsOptions = {
-    origin: 'https://networkscanner-s.herokuapp.com/ip',
+    origin: 'https://networkscanner-s.herokuapp.com',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
